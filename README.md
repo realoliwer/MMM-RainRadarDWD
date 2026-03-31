@@ -19,7 +19,7 @@ To keep your mirror clean, the module acts smartly: It stays completely hidden d
    cd ~/MagicMirror/modules
 2. Clone this repository:
    ```bash
-   git clone https://github.com/realoliwer/MMM-RainMapDWD.git
+   git clone https://github.com/realoliwer/MMM-RainRadarDWD.git
 3. Restart your MagicMirror;e.g. with
    ```bash
    pm2 restart MagicMirror.
