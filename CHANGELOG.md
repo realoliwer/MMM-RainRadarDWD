@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 - Added `rainSearchRadius` to `config.js`. The module can now perform a cross-scan (Center, North, South, East, West) to detect precipitation passing slightly off-center.
 
 ### Changed
-- Enhanced PM2 debug logging to explicitly state *where* in the radius the precipitation was detected (e.g., `[West]`).
+- Enhanced PM2 debug logging to explicitly state where in the radius the precipitation was detected (e.g., `[West]`).
 - Completed README.md configuration options in table
 
 ### Fixed
