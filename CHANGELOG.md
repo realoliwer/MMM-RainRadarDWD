@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.3] - 2026-04-10
+### Added
+- Added a dynamic "pre-flight ping" to the DWD server. The module now requests a microscopic 2x2 pixel image every 2 minutes to check if the latest radar frame is online, ensuring the "NOW" frame is always as current as possible without triggering 404 errors.
+- Added an independent background refresh loop to the frontend. The radar timeline and timestamps now update continuously while the module is visible, completely decoupled from the Bright Sky API polling interval.
+
+### Changed
+- added code comments to make it easier to understand why we did certain things in a year or two ;)
+- Optimized map rendering by skipping unnecessary OpenLayers updates if the latest available DWD base time hasn't changed.
+
 ## [0.9.2] - 2026-04-02
 ### Added
 - Added `rainSearchRadius` to `config.js`. The module can now perform a cross-scan (Center, North, South, East, West) to detect precipitation passing slightly off-center.
@@ -13,7 +22,6 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Fixed a timing bug where the currently running hour was ignored by the API evaluation (added a 60-minute backward buffer).
 - Fixed duplicate `[MMM-RainRadarDWD]` prefix in the terminal logs by cleaning up the custom log function.
-
 
 ## [0.9.1] - 2026-04-02
 ### Added
