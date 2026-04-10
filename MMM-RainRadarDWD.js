@@ -208,8 +208,8 @@ Module.register("MMM-RainRadarDWD", {
             } else {
                 this.log("DEBUG", `DWD image for ${timeStr} is online! Setting to NOW.`);
             }
-        } catch (e) {
-            this.log("DEBUG", `Ping failed, falling back -5 mins.`);
+        } catch (error) {
+            this.log("DEBUG", `Ping failed: ${error.message}. Falling back -5 mins.`);
             baseTime = new Date(candidateTime.getTime() - 5 * 60000);
         }
 
