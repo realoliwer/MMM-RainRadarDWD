@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [0.9.4] - 2026-04-13
+### Changed
+- Updated lint in scripts (removed unnessary . at end of line)
+- Updated globals in devDependencies to 17.5.0
+
 ### Fixed
 - Electron did not render the map anymore after update of Electron
 
