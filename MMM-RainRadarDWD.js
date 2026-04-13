@@ -144,6 +144,11 @@ Module.register("MMM-RainRadarDWD", {
                             clearInterval(checkExist);
                             this.updateRadarData();
                             this.startRadarUpdateInterval();
+                            
+                            setTimeout(() => {
+                                if (this.map) this.map.updateSize();
+                            }, 200);
+                            
                         }
                         if (++retries > 50) {
                             clearInterval(checkExist);
@@ -228,7 +233,8 @@ Module.register("MMM-RainRadarDWD", {
                 layers: [
                     new ol.layer.Tile({
                         source: new ol.source.XYZ({
-                            url: 'https://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+                            url: 'https://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+                            crossOrigin: 'anonymous'
                         })
                     })
                 ],

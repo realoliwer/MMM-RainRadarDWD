@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.4] - 2026-04-13
+### Changed
+- Updated lint in scripts (removed unnessary . at end of line)
+- Updated globals in devDependencies to 17.5.0
+
+### Fixed
+- Electron did not render the map anymore after update of Electron
+
+
 ## [0.9.3] - 2026-04-10
 ### Added
 - Added a dynamic "ping" to the DWD server. The module now requests a microscopic 2x2 pixel image every 2 minutes to check if the latest radar frame is online, ensuring the "NOW" frame is always as current as possible without triggering 404 errors.
