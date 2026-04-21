@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Another attempt to fix the map rendering issue that occurs sometimes
 
+### Changed
+- Changed default Log level to Error (was Info)
+  
 ### Chores
 - Updated packages.json (corrected name, added type, updated devdependencies)
 
