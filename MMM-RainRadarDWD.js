@@ -33,7 +33,7 @@ Module.register("MMM-RainRadarDWD", {
         textLight: "Light",
         textHeavy: "Heavy",
         
-        logLevel: "INFO"
+        logLevel: "ERROR"
     },
 
     getScripts: function() { 
