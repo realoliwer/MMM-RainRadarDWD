@@ -143,17 +143,12 @@ Module.register("MMM-RainRadarDWD", {
                         if (document.getElementById("rainradar-map")) {
                             clearInterval(checkExist);
                             this.updateRadarData();
-                            this.startRadarUpdateInterval();
-                            
-                            setTimeout(() => {
-                                if (this.map) this.map.updateSize();
-                            }, 200);
-                            
+                            this.startRadarUpdateInterval();      
                         }
                         if (++retries > 50) {
                             clearInterval(checkExist);
                         }
-                    }, 100);
+                    }, 50);
                 } else {
                     // Module is already visible, just update the data
                     this.updateRadarData(); 
@@ -244,6 +239,15 @@ Module.register("MMM-RainRadarDWD", {
                 }),
                 controls: [] // Hide default map controls (zoom buttons, etc.)
             });
+            // redraws the OpenLayer map when the module is getting resized or opened
+            const resizeObserver = new ResizeObserver(() => {
+                if (this.map) {
+                    this.log("DEBUG", "Map container size changed. Forcing OpenLayers redraw.");
+                    this.map.updateSize();
+                }
+            });
+            resizeObserver.observe(document.getElementById('rainradar-map'));
+         
         }
 
         // Generate the timeline frames based on config
@@ -290,6 +294,11 @@ Module.register("MMM-RainRadarDWD", {
         while (this.radarLayers.length > frameIndex) {
             const oldLayer = this.radarLayers.pop();
             this.map.removeLayer(oldLayer.layer);
+            if (oldLayer.layer.getSource()) {
+                oldLayer.layer.getSource().dispose();
+            }
+            oldLayer.layer.dispose();
+            
         }
         
         this.startAnimation();
