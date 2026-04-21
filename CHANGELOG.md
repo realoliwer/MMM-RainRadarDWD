@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.4] - 2026-04-21
+
+### Fixed
+- Another attempt to fix the map rendering issue that occurs sometimes
+
+
 ## [0.9.4] - 2026-04-13
 ### Changed
 - Updated lint in scripts (removed unnessary . at end of line)
