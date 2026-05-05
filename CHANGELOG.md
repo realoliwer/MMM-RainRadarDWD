@@ -12,6 +12,8 @@ All notable changes to this project will be documented in this file.
   
 ### Chores
 - Updated packages.json (corrected name, added type, updated devdependencies)
+- Updated globals in devDependencies to 17.6.0
+- Updated eslint in devDependencies to 10.3.0
 
 ## [0.9.4] - 2026-04-13
 ### Changed
