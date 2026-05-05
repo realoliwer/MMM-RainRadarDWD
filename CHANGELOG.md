@@ -2,16 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.9.5] - 2026-04-21
-
+## [0.9.5] - 2026-05-05
 ### Fixed
-- Another attempt to fix the map rendering issue that occurs sometimes
+- Tried to fix the empy Map issue after module got hidden once
 
-### Changed
-- Changed default Log level to Error (was Info)
-  
 ### Chores
-- Updated packages.json (corrected name, added type, updated devdependencies)
 - Updated globals in devDependencies to 17.6.0
 - Updated eslint in devDependencies to 10.3.0
 
