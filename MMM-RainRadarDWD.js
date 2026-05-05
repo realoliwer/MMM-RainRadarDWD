@@ -160,6 +160,11 @@ Module.register("MMM-RainRadarDWD", {
                 this.updateDom(500);
                 if (this.animationTimer) clearInterval(this.animationTimer);
                 this.stopRadarUpdateInterval();
+                if (this.map) {
+                    this.map.setTarget(null);
+                    this.map = null;
+                    this.radarLayers = [];
+                    this.lastBaseTime = null
             }
         }
     },
