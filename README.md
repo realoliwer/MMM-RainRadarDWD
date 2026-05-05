@@ -144,7 +144,7 @@ Configuration with all parameters and short explanation (see also table below)
 | `textLoading` | String | `"Loading data..."`| Initial text shown while fetching DWD data. |
 | `textLight` | String | `"Light"` | Text for the lowest value on the legend. |
 | `textHeavy` | String | `"Heavy"` | Text for the highest value on the legend. |
-| `logLevel` | String | `"INFO"` | Terminal output verbosity. Choose `"NONE"`, `"ERROR"`, `"INFO"`, or `"DEBUG"`. |
+| `logLevel` | String | `"ERROR"` | Terminal output verbosity. Choose `"NONE"`, `"ERROR"`, `"INFO"`, or `"DEBUG"`. |
 ## Zoom Levels Reference
 
 OpenLayers uses a logarithmic scale for zoom levels. Depending on your preference, set zoomLevel to:

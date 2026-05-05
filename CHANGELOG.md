@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.9.6] - 2026-05-05
+## [0.9.5] - 2026-05-05
 ### Fixed
 - Tried to fix the empy Map issue after module got hidden once
 
