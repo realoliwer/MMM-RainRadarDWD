@@ -170,6 +170,7 @@ Module.register("MMM-RainRadarDWD", {
                     this.map = null;
                     this.radarLayers = [];
                     this.lastBaseTime = null;
+                }
             }
         }
     },
