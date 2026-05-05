@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.6] - 2026-05-05
+### Fixed
+- Tried to fix the empy Map issue after module got hidden once
+
+### Chores
+- Updated globals in devDependencies to 17.6.0
+- Updated eslint in devDependencies to 10.3.0
+
 ## [0.9.4] - 2026-04-13
 ### Changed
 - Updated lint in scripts (removed unnessary . at end of line)
