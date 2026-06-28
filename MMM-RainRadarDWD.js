@@ -164,7 +164,8 @@ Module.register("MMM-RainRadarDWD", {
                     this.map.setTarget(null);
                     this.map = null;
                     this.radarLayers = [];
-                    this.lastBaseTime = null
+                    this.lastBaseTime = null;
+                }
             }
         }
     },
