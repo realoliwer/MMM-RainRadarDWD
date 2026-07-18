@@ -54,15 +54,15 @@ Module.register("MMM-RainRadarDWD", {
         if (msgLevel <= configLevel) {
             const prefix = `[${this.name}] `;
             if (level === "ERROR") {
-                console.error(prefix + message);
+                Log.error(prefix + message);
             } else {
-                console.log(prefix + message);
+                Log.info(prefix + message);
             }
         }
     },
 
     start: function() {
-        this.log("INFO", "Module version 0.9.2 started.");
+        this.log("INFO", "Module version 1.0.0 started.");
         
         this.config = Object.assign({}, this.defaults, this.config);
         
@@ -167,6 +167,20 @@ Module.register("MMM-RainRadarDWD", {
                     this.lastBaseTime = null;
                 }
             }
+        }
+    },
+
+    suspend: function() {
+        this.log("INFO", "Module suspended. Stopping radar updates and animation.");
+        if (this.animationTimer) clearInterval(this.animationTimer);
+        this.stopRadarUpdateInterval();
+    },
+
+    resume: function() {
+        this.log("INFO", "Module resumed. Restarting radar updates and animation.");
+        if (this.showRadar) {
+            this.updateRadarData();
+            this.startRadarUpdateInterval();
         }
     },
 

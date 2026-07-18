@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.0.0] - 2026-07-18
+### Added
+- Implemented MagicMirror lifecycle methods `suspend()` and `resume()` to pause OpenLayers animations and background polling when the module is hidden (e.g. by a carousel), saving CPU resources.
+
+### Changed
+- Replaced frontend `console.log` calls with the native MagicMirror `Log` object for better system integration.
+
+### Fixed
+- Fixed an interval leak in `node_helper.js` where multiple `CONFIG` notifications would spawn overlapping weather-check intervals.
+- Fixed a bug in `MMM-RainRadarDWD.css` where the entire CSS code was accidentally duplicated.
+
 ## [0.9.6] - 2026-06-28
 ### Chores
 - Updated globals in devDependencies to 17.7.0

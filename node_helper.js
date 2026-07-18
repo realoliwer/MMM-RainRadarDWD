@@ -26,7 +26,10 @@ module.exports = NodeHelper.create({
             // Fire the first check immediately, then start the polling loop
             this.checkWeather();
             
-            setInterval(() => {
+            if (this.updateTimer) {
+                clearInterval(this.updateTimer);
+            }
+            this.updateTimer = setInterval(() => {
                 this.log("DEBUG", "Regular update interval reached.");
                 this.checkWeather();
             }, this.config.updateInterval);
