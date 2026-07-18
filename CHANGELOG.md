@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.0] - 2026-07-18
 ### Added
+- Added exact expected precipitation timestamps to logs to simplify debugging.
 - Implemented MagicMirror lifecycle methods `suspend()` and `resume()` to pause OpenLayers animations and background polling when the module is hidden (e.g. by a carousel), saving CPU resources.
 
 ### Changed
