@@ -160,7 +160,7 @@ This module relies on several amazing open data sources and open-source projects
 
 Weather & Radar Data: Deutscher Wetterdienst (DWD). Data provided under the Datenlizenz Deutschland - Namensnennung - Version 2.0.
 API Endpoint: Weather condition checks are powered by the open-source Bright Sky API.
-Base Map: Map tiles by CARTO, under CC BY 3.0. Data by OpenStreetMap, under ODbL.
+Base Map: Map tiles by FOSSGIS e.V., Data by OpenStreetMap, under ODbL.
 Map Engine: Powered by OpenLayers.
 
 ## License

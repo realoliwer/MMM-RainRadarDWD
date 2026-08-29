@@ -108,7 +108,7 @@
 .legend-pos-left { left: 10px; }
 .legend-pos-right { right: 10px; }
 
-/* Filter to turn the standard light OSM tiles into a Dark Mode map */
+/* Filter to turn the standard light OSM tiles into a sleek Dark Mode map */
 .osmdark-map {
-    filter: invert(100%) hue-rotate(180deg) contrast(90%);
+    filter: invert(100%) grayscale(100%) contrast(85%) brightness(110%);
 }

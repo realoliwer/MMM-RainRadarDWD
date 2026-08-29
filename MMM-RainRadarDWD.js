@@ -123,6 +123,7 @@ Module.register("MMM-RainRadarDWD", {
             <div class="rainradar-marker" style="color:${this.config.markerColor}">
                 <i class="fas ${this.config.markerSymbol}"></i>
             </div>
+            <div style="position: absolute; bottom: 2px; right: 5px; font-size: 9px; color: #666; z-index: 10;">© <a href="https://www.openstreetmap.org/copyright" style="color:#666; text-decoration:none;">OpenStreetMap</a> contributors</div>
         `;
         
         return wrapper;
