@@ -54,15 +54,15 @@ Module.register("MMM-RainRadarDWD", {
         if (msgLevel <= configLevel) {
             const prefix = `[${this.name}] `;
             if (level === "ERROR") {
-                console.error(prefix + message);
+                Log.error(prefix + message);
             } else {
-                console.log(prefix + message);
+                Log.info(prefix + message);
             }
         }
     },
 
     start: function() {
-        this.log("INFO", "Module version 0.9.2 started.");
+        this.log("INFO", "Module version 1.0.1 started.");
         
         this.config = Object.assign({}, this.defaults, this.config);
         
@@ -123,6 +123,7 @@ Module.register("MMM-RainRadarDWD", {
             <div class="rainradar-marker" style="color:${this.config.markerColor}">
                 <i class="fas ${this.config.markerSymbol}"></i>
             </div>
+            <div style="position: absolute; bottom: 2px; right: 5px; font-size: 9px; color: #666; z-index: 10;">© <a href="https://www.openstreetmap.org/copyright" style="color:#666; text-decoration:none;">OpenStreetMap</a> contributors</div>
         `;
         
         return wrapper;
@@ -167,6 +168,20 @@ Module.register("MMM-RainRadarDWD", {
                     this.lastBaseTime = null;
                 }
             }
+        }
+    },
+
+    suspend: function() {
+        this.log("INFO", "Module suspended. Stopping radar updates and animation.");
+        if (this.animationTimer) clearInterval(this.animationTimer);
+        this.stopRadarUpdateInterval();
+    },
+
+    resume: function() {
+        this.log("INFO", "Module resumed. Restarting radar updates and animation.");
+        if (this.showRadar) {
+            this.updateRadarData();
+            this.startRadarUpdateInterval();
         }
     },
 
@@ -233,9 +248,12 @@ Module.register("MMM-RainRadarDWD", {
                 target: 'rainradar-map',
                 layers: [
                     new ol.layer.Tile({
+                        className: 'osmdark-map',
+                        opacity: 0.4, // Blends the map into the black background for a true MagicMirror look
                         source: new ol.source.XYZ({
-                            url: 'https://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-                            crossOrigin: 'anonymous'
+                            url: 'https://tile.openstreetmap.de/{z}/{x}/{y}.png',
+                            crossOrigin: 'anonymous',
+                            referrerPolicy: 'no-referrer-when-downgrade'
                         })
                     })
                 ],

@@ -26,7 +26,10 @@ module.exports = NodeHelper.create({
             // Fire the first check immediately, then start the polling loop
             this.checkWeather();
             
-            setInterval(() => {
+            if (this.updateTimer) {
+                clearInterval(this.updateTimer);
+            }
+            this.updateTimer = setInterval(() => {
                 this.log("DEBUG", "Regular update interval reached.");
                 this.checkWeather();
             }, this.config.updateInterval);
@@ -108,7 +111,8 @@ module.exports = NodeHelper.create({
                 const eventAtLocation = relevantHours.find(h => h.precipitation > 0);
 
                 if (eventAtLocation) {
-                    this.log("DEBUG", `[${response.name}] Hit! Precipitation: ${eventAtLocation.precipitation} mm | Condition: ${eventAtLocation.condition}`);
+                    const eventTime = new Date(eventAtLocation.timestamp).toLocaleTimeString();
+                    this.log("DEBUG", `[${response.name}] Hit! Precipitation: ${eventAtLocation.precipitation} mm | Condition: ${eventAtLocation.condition} | Expected at: ${eventTime}`);
                     
                     // Store the first detected event globally and append its location identifier for logging
                     if (!upcomingEvent) {
@@ -125,7 +129,8 @@ module.exports = NodeHelper.create({
             // 4. Send visibility and precipitation data to the frontend module
             if (!alwaysVisible) {
                 if (upcomingEvent) {
-                    this.log("INFO", `Precipitation detected nearby at [${upcomingEvent.locationName}] (${upcomingEvent.precipitation} mm). Radar will be shown.`);
+                    const upcomingTime = new Date(upcomingEvent.timestamp).toLocaleTimeString();
+                    this.log("INFO", `Precipitation detected nearby at [${upcomingEvent.locationName}] (${upcomingEvent.precipitation} mm, expected at ${upcomingTime}). Radar will be shown.`);
                     this.sendSocketNotification("SHOW_RADAR", { show: true, precipType: upcomingEvent.condition || "rain" });
                 } else {
                     this.log("INFO", `No precipitation expected in the given timeframe or radius. Hiding radar.`);

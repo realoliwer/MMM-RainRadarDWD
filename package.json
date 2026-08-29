@@ -1,8 +1,8 @@
 {
   "name": "mmm-rainradardwd",
-  "version": "0.9.6",
-  "type":"commonjs",
-  "description": "A smart Rain & Snow Radar module for MagicMirror² using official DWD data.",
+  "version": "1.0.1",
+  "type": "common.js",
+  "description": "A smart Rain & Snow Radar module for MagicMirror� using official DWD data.",
   "main": "MMM-RainRadarDWD.js",
   "scripts": {
     "lint": "eslint"
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.6.0",
-    "globals": "^17.7.0"
+    "eslint": "^10.8.0",
+    "globals": "^17.8.0"
   }
 }
