@@ -249,6 +249,7 @@ Module.register("MMM-RainRadarDWD", {
                 layers: [
                     new ol.layer.Tile({
                         className: 'osmdark-map',
+                        opacity: 0.4, // Blends the map into the black background for a true MagicMirror look
                         source: new ol.source.XYZ({
                             url: 'https://tile.openstreetmap.de/{z}/{x}/{y}.png',
                             crossOrigin: 'anonymous',
