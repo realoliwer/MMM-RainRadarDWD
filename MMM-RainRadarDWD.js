@@ -248,7 +248,9 @@ Module.register("MMM-RainRadarDWD", {
                 layers: [
                     new ol.layer.Tile({
                         className: 'osmdark-map',
-                        source: new ol.source.OSM()
+                        source: new ol.source.OSM({
+                            referrerPolicy: 'no-referrer-when-downgrade'
+                        })
                     })
                 ],
                 view: new ol.View({
