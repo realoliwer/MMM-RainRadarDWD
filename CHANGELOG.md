@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.0.1] - 2026-08-29
+### Changed
+- Switch from Carto to OSM FOSSGIS e.V. as map provider (Carto requires API Key now)
+
+### Chores
+- Updated globals in devDependencies to 17.8.0
+- Updated eslint in devDependencies to 10.8.0
+
 ## [1.0.0] - 2026-07-18
 ### Added
 - Added exact expected precipitation timestamps to logs to simplify debugging.

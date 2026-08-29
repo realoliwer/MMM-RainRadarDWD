@@ -62,7 +62,7 @@ Module.register("MMM-RainRadarDWD", {
     },
 
     start: function() {
-        this.log("INFO", "Module version 1.0.0 started.");
+        this.log("INFO", "Module version 1.0.1 started.");
         
         this.config = Object.assign({}, this.defaults, this.config);
         
