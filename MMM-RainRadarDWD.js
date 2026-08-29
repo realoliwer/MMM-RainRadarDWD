@@ -247,10 +247,8 @@ Module.register("MMM-RainRadarDWD", {
                 target: 'rainradar-map',
                 layers: [
                     new ol.layer.Tile({
-                        source: new ol.source.XYZ({
-                            url: 'https://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-                            crossOrigin: 'anonymous'
-                        })
+                        className: 'osmdark-map',
+                        source: new ol.source.OSM()
                     })
                 ],
                 view: new ol.View({
